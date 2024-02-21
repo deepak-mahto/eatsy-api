@@ -1,2 +1,3 @@
-# eatsy-api
+# eatsy
+
 backend for eatsy.

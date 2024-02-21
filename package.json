@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server"
+  },
+  "name": "eatsy-be",
+  "description": "backend for eatsy.",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  },
+  "keywords": [],
+  "author": "Deepak Kumar",
+  "license": "ISC"
+}
