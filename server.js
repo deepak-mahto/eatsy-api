@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 
 mongoose.connect(
-  "mongodb+srv://mahtodeepak:deepak23@eatsy-be.fev9adq.mongodb.net/restaurants"
+  "mongodb+srv://mahtodeepak:deepak23@eatsy-be.fev9adq.mongodb.net/"
 );
 
 const db = mongoose.connection;
