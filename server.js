@@ -1,9 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const path = require("path");
 
 const app = express();
+
+app.use(cors());
 
 mongoose.connect(
   "mongodb+srv://mahtodeepak:deepak23@eatsy-be.fev9adq.mongodb.net/"
@@ -27,4 +30,3 @@ app.listen(8000, () => {
 
 require(path.join(__dirname, "./routes/users.routes"))(app);
 require(path.join(__dirname, "./routes/restaurants.routes"))(app);
-
