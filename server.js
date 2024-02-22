@@ -28,5 +28,5 @@ app.listen("8000", () => {
   console.log("Server is Up and Running");
 });
 
-require(path.join(__dirname, "./Routes/users.routes"))(app);
+require(path.join(__dirname, "./routes/users.routes"))(app);
 require(path.join(__dirname, "./routes/restaurants.routes"))(app);
