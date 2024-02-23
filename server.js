@@ -30,3 +30,5 @@ app.listen("8000", () => {
 
 require(path.join(__dirname, "./routes/users.routes"))(app);
 require(path.join(__dirname, "./routes/restaurants.routes"))(app);
+require("./routes/users-auth.routes")(app);
+require("./routes/restaurant-menu.routes")(app);
