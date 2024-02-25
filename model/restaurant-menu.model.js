@@ -8,6 +8,9 @@ const restaurantMenuSchema = mongoose.Schema({
   resId: String,
 });
 
-const restaurantMenuModel = mongoose.model("restaurantMenu", restaurantMenuSchema);
+const restaurantMenuModel = mongoose.model(
+  "restaurantMenu",
+  restaurantMenuSchema
+);
 
 module.exports = restaurantMenuModel;
