@@ -1,3 +1,1 @@
-# eatsy
-
-backend for eatsy.
+endpoints for restaurants app
