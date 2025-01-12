@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -5,12 +6,12 @@ const cors = require("cors");
 const path = require("path");
 
 const app = express();
+const port = process.env.PORT;
+const dbConnString = process.env.DATABASE_CONN_URL;
 
 app.use(cors());
 
-mongoose.connect(
-  "mongodb+srv://mahtodeepak:deepak23@eatsy-be.fev9adq.mongodb.net/"
-);
+mongoose.connect(dbConnString);
 
 const db = mongoose.connection;
 
@@ -24,7 +25,7 @@ db.on("open", () => {
 
 app.use(bodyParser.json());
 
-app.listen("8000", () => {
+app.listen(port, () => {
   console.log("Server is Up and Running");
 });
 
