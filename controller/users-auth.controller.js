@@ -39,8 +39,6 @@ exports.login = (req, res) => {
         res.status(404).send({ message: "Email not registered" });
       }
 
-      // compare password
-
       let isValidPassword = bcrypt.compareSync(password, data.password);
 
       if (!isValidPassword) {
@@ -53,9 +51,8 @@ exports.login = (req, res) => {
         user: {
           id: data._id,
           email: data.email,
-          password: data.password,
         },
-        accessToen: token,
+        accessToken: token,
       });
     })
     .catch((err) => {

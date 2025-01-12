@@ -29,7 +29,7 @@ app.listen(port, () => {
   console.log("Server is Up and Running");
 });
 
-require(path.join(__dirname, "./routes/users.routes"))(app);
+require(path.join(__dirname, "./routes/restaurant-menu.routes"))(app);
 require(path.join(__dirname, "./routes/restaurants.routes"))(app);
-require("./routes/users-auth.routes")(app);
-require("./routes/restaurant-menu.routes")(app);
+require(path.join(__dirname, "./routes/users-auth.routes"))(app);
+require(path.join(__dirname, "./routes/users.routes"))(app);
