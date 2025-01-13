@@ -6,6 +6,7 @@ const restaurantMenuSchema = mongoose.Schema({
   price: String,
   description: String,
   resId: String,
+  creatorId: { type: mongoose.Types.ObjectId, required: true },
 });
 
 const restaurantMenuModel = mongoose.model(

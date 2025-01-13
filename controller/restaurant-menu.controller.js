@@ -1,6 +1,7 @@
 const restaurantMenuModel = require("../model/restaurant-menu.model");
 
 exports.create = (req, res) => {
+  const userId = req.user;
   const { name, imageId, price, description, resId } = req.body;
 
   const newRestaurantMenu = new restaurantMenuModel({
@@ -9,6 +10,7 @@ exports.create = (req, res) => {
     price,
     description,
     resId,
+    userId,
   });
   newRestaurantMenu
     .save()

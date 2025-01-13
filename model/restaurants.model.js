@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const ObjectId = mongoose.Types.ObjectId;
 
 const restaurantSchema = mongoose.Schema({
   name: String,
@@ -7,6 +8,7 @@ const restaurantSchema = mongoose.Schema({
   deliveryTime: String,
   costForTwo: String,
   cloudinaryImageId: String,
+  creatorId: { type: ObjectId, ref: "user-auth-details", required: true },
 });
 
 const restaurantsModel = mongoose.model("restaurants", restaurantSchema);
