@@ -3,7 +3,7 @@ const userModel = require("../model/users-auth.model");
 
 const verifyToken = (req, res, next) => {
   if (
-    req.header &&
+    req.headers &&
     req.headers.authorization &&
     req.headers.authorization.split(" ")[0] === "JWT"
   ) {

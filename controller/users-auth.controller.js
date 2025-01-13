@@ -45,7 +45,7 @@ exports.login = (req, res) => {
         res.status(401).send({ message: "Invalid Password" });
       }
 
-      let token = jwt.sign({ id: data._id }, "secretkey");
+      let token = jwt.sign({ id: data._id }, process.env.JWT_SECRET_KEY);
 
       res.send({
         user: {

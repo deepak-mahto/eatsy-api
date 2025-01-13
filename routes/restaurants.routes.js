@@ -3,7 +3,7 @@ const verifyToken = require("../middleware/authJWT");
 
 module.exports = (app) => {
   app.post("/api/restaurant", verifyToken, restaurantController.create);
-  app.delete("/api/restaurants/:id", verifyToken, restaurantController.delete);
+  app.delete("/api/restaurants/:id", restaurantController.delete);
   app.get("/api/restaurants", restaurantController.fetch);
-  app.put("/api/restaurants/:id", verifyToken, restaurantController.updateOne);
+  app.put("/api/restaurants/:id", restaurantController.updateOne);
 };

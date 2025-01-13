@@ -1,7 +1,7 @@
 const restaurantsModel = require("../model/restaurants.model");
 
 exports.create = (req, res) => {
-  const userId = req.user;
+  const { _id } = req.user;
   const {
     name,
     cuisines,
@@ -18,7 +18,7 @@ exports.create = (req, res) => {
     deliveryTime,
     costForTwo,
     cloudinaryImageId,
-    userId,
+    creatorId: _id,
   });
 
   newRestaurant
@@ -36,13 +36,12 @@ exports.create = (req, res) => {
 };
 
 exports.updateOne = (req, res) => {
-  const userId = req.user;
   const _id = req.params.id;
 
   const keys = Object.keys(req.body);
 
   restaurantsModel
-    .findByIdAndUpdate(_id, { deliveryTime: keys.deliveryTime }, userId)
+    .findByIdAndUpdate(_id, { deliveryTime: keys.deliveryTime })
     .then((data) => {
       if (!data) {
         res.status(400).send({ message: "Something went wrong" });
@@ -73,11 +72,9 @@ exports.fetch = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-  const userId = req.user;
-
   const id = req.params.id;
   restaurantsModel
-    .findByIdAndDelete(id, userId)
+    .findByIdAndDelete(id)
     .then((data) => {
       if (!data) {
         res.status(400).send({ message: "Something went wrong" });
