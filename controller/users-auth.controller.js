@@ -3,10 +3,10 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 exports.register = (req, res) => {
-  const { fullName, email, password } = req.body;
+  const { name, email, password } = req.body;
 
   const user = new userModel({
-    fullName,
+    name,
     email,
     password: bcrypt.hashSync(password, 10),
   });
@@ -18,7 +18,11 @@ exports.register = (req, res) => {
       user
         .save()
         .then((data) => {
-          res.send({ message: "User registered successfully!" });
+          const token = jwt.sign({ id: data._id }, process.env.JWT_SECRET_KEY);
+          res.send({
+            message: "User registered successfully!",
+            token: token,
+          });
         })
         .catch((err) => {
           res.status(500).send({
@@ -52,7 +56,7 @@ exports.login = (req, res) => {
           id: data._id,
           email: data.email,
         },
-        accessToken: token,
+        token: token,
       });
     })
     .catch((err) => {

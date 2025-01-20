@@ -14,8 +14,7 @@ app.use(cors());
 mongoose.connect(dbConnString);
 
 const db = mongoose.connection;
-
-db.on("error", () => {
+~db.on("error", () => {
   console.log("Error in connecting to DB");
 });
 

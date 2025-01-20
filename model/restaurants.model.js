@@ -7,7 +7,7 @@ const restaurantSchema = mongoose.Schema({
   avgRating: String,
   deliveryTime: String,
   costForTwo: String,
-  cloudinaryImageId: String,
+  imageUrl: String,
   creatorId: { type: ObjectId, ref: "user-auth-details", required: true },
 });
 

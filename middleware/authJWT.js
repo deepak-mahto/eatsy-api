@@ -18,7 +18,7 @@ const verifyToken = (req, res, next) => {
         userModel
           .findById(verifiedToken.id)
           .then((user) => {
-            req.user = user;
+            req.userId = user._id;
             next();
           })
           .catch((err) => {

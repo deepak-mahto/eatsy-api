@@ -1,15 +1,9 @@
 const restaurantsModel = require("../model/restaurants.model");
 
 exports.create = (req, res) => {
-  const { _id } = req.user;
-  const {
-    name,
-    cuisines,
-    avgRating,
-    deliveryTime,
-    costForTwo,
-    cloudinaryImageId,
-  } = req.body;
+  const userId = req.userId;
+  const { name, cuisines, avgRating, deliveryTime, costForTwo, imageUrl } =
+    req.body;
 
   const newRestaurant = new restaurantsModel({
     name,
@@ -17,8 +11,8 @@ exports.create = (req, res) => {
     avgRating,
     deliveryTime,
     costForTwo,
-    cloudinaryImageId,
-    creatorId: _id,
+    imageUrl,
+    creatorId: userId,
   });
 
   newRestaurant
@@ -62,7 +56,7 @@ exports.fetch = (req, res) => {
         res.status(400).send({ message: "Something went wrong" });
       } else {
         res.json({
-          data: data,
+          restaurants: data,
         });
       }
     })
