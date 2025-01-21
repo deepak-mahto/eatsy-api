@@ -40,13 +40,13 @@ exports.login = (req, res) => {
     .findOne({ email })
     .then((data) => {
       if (!data) {
-        res.status(404).send({ message: "Email not registered" });
+        return res.status(404).send({ message: "Email not registered" });
       }
 
       let isValidPassword = bcrypt.compareSync(password, data.password);
 
       if (!isValidPassword) {
-        res.status(401).send({ message: "Invalid Password" });
+        return res.status(401).send({ message: "Invalid Password" });
       }
 
       let token = jwt.sign({ id: data._id }, process.env.JWT_SECRET_KEY);
